@@ -12,7 +12,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="102.0" layoutY="107.0" prefHeight="35.0" prefWidth="150.0" text="Friend1">
+      <Label fx:id="friendOne" layoutX="102.0" layoutY="107.0" prefHeight="35.0" prefWidth="150.0">
          <font>
             <Font size="14.0" />
          </font></Label>
@@ -51,5 +51,6 @@
             <Image url="@Image/userimage.png" />
          </image>
       </ImageView>
+      <Button layoutX="391.0" layoutY="142.0" mnemonicParsing="false" onAction="#contactOne" text="Button" />
    </children>
 </AnchorPane>

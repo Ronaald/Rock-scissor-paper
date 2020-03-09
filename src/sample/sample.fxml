@@ -13,7 +13,7 @@
       </Label>
       <TextField fx:id="userText" layoutX="225.0" layoutY="175.0" />
       <PasswordField fx:id="passwordText" layoutX="226.0" layoutY="240.0" />
-      <Button fx:id="loginButton" layoutX="226.0" layoutY="322.0" mnemonicParsing="false" onAction="#logiinButton" prefHeight="34.0" prefWidth="114.0" text="Login">
+      <Button fx:id="loginButton" layoutX="226.0" layoutY="322.0" mnemonicParsing="false" onAction="#logiinButton" prefHeight="34.0" prefWidth="114.0" text="Login" style="-fx-background-color: #00ff48;">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>

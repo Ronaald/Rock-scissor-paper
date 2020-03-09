@@ -6,9 +6,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
-import javafx.event.ActionEvent;
+//import javafx.event.ActionEvent;
 
-import java.awt.*;
+//import java.awt.*;
+//import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -23,9 +24,12 @@ public class Controller {
     javafx.scene.control.TextField userText;
     @FXML
     javafx.scene.control.Label logMessage;
+    @FXML
+    javafx.scene.control.Label friendOne;
+
 
     Databas databas = new Databas();
-
+    long UserID = 0;
     public Controller() {
 
         databas.startaConnection();
@@ -37,10 +41,11 @@ public class Controller {
 
         String userName = userText.getText();
         String password = passwordText.getText();
-        int result = databas.login(userName, password);
+        UserID = databas.login(userName, password);
 
-        if(result > 0) {
+        if(UserID > 0) {
             Parent contactlistParent = FXMLLoader.load(getClass().getResource("contactlist.fxml"));
+
             Scene contactlistscene = new Scene (contactlistParent);
             Stage window = (Stage)((javafx.scene.Node)actionEvent.getSource()).getScene().getWindow();
             window.setScene(contactlistscene);
@@ -50,6 +55,11 @@ public class Controller {
         }
         userText.setText("");
         passwordText.setText("");
+    }
+
+    public void contactOne ( javafx.event.ActionEvent actionEvent) throws SQLException {
+        int xx = databas.getFriend(UserID);
+        friendOne.setText(Integer.toString(xx));
     }
 }
 

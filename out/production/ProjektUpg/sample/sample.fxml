@@ -13,10 +13,13 @@
       </Label>
       <TextField fx:id="userText" layoutX="225.0" layoutY="175.0" />
       <PasswordField fx:id="passwordText" layoutX="226.0" layoutY="240.0" />
-      <Button fx:id="loginButton" layoutX="273.0" layoutY="322.0" mnemonicParsing="false" onAction="#logiinButton" text="Login" />
+      <Button fx:id="loginButton" layoutX="226.0" layoutY="322.0" mnemonicParsing="false" onAction="#logiinButton" prefHeight="34.0" prefWidth="114.0" text="Login" style="-fx-background-color: #00ff48;">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Button>
       <Label layoutX="225.0" layoutY="150.0" prefHeight="13.0" prefWidth="95.0" text="Username" />
       <Label layoutX="225.0" layoutY="216.0" prefHeight="17.0" prefWidth="85.0" text="Password" />
-      <Label fx:id="logMessage" layoutX="235.0" layoutY="282.0" prefHeight="17.0" prefWidth="200.0" textFill="#fd0000">
+      <Label fx:id="logMessage" layoutX="196.0" layoutY="282.0" prefHeight="17.0" prefWidth="200.0" textFill="#fd0000">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font></Label>
