@@ -1,5 +1,8 @@
 package sample;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.sql.*;
 
 public class Databas {
@@ -47,21 +50,25 @@ public class Databas {
         return 0;
     }
 
-     public int getFriend(long user_id) throws SQLException {
+     public ObservableList<FriendList>  getFriend(long user_id) throws SQLException {
+         ObservableList<FriendList> listView =  FXCollections.observableArrayList(); ;
+
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("SELECT * FROM \"Contacts\"" +
-                    "WHERE \"UserID\" = ?; ");
+            stmt = connection.prepareStatement("select u.\"UserName\" , u.\"UserID\" \n" +
+                    "from \"Contacts\" c\n" +
+                    "left join \"Users\" u on c.\"FriendID\" = u.\"UserID\" \n" +
+                    "where \"OwnerID\"  = ?; ");
             stmt.setLong(1, user_id);
 
 
-            ResultSet rs = stmt.executeQuery();
-            // ResultSet validUser = stmt.executeQuery();
+            ResultSet rad = stmt.executeQuery();
+            
             int antal = -1;
-            if (rs.next()) {
-                antal = rs.getInt("0");
+            while (rad.next()) {
+                listView.add(new FriendList(rad.getString(1),rad.getInt(2)));
             }
-            return antal;
+            return listView;
         } catch (Exception e) {
             System.out.println(e.getMessage());
 
@@ -70,7 +77,7 @@ public class Databas {
         if (stmt != null) {
             stmt.close();
         }
-         return 0;
+         return listView;
      }
 
 

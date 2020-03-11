@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
@@ -12,45 +11,6 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="friendOne" layoutX="102.0" layoutY="107.0" prefHeight="35.0" prefWidth="150.0">
-         <font>
-            <Font size="14.0" />
-         </font></Label>
-      <Label layoutX="102.0" layoutY="182.0" prefHeight="35.0" prefWidth="150.0" text="Friend2">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="102.0" layoutY="328.0" prefHeight="35.0" prefWidth="150.0" text="Friend 4">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="102.0" layoutY="259.0" prefHeight="35.0" prefWidth="150.0" text="Friend 3">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="28.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Image/userimage.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="28.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Image/userimage.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="28.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Image/userimage.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="28.0" layoutY="314.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Image/userimage.png" />
-         </image>
-      </ImageView>
-      <Button layoutX="391.0" layoutY="142.0" mnemonicParsing="false" onAction="#contactOne" text="Button" />
+      <ListView fx:id="list" layoutX="43.0" layoutY="82.0" prefHeight="251.0" prefWidth="200.0" />
    </children>
 </AnchorPane>
