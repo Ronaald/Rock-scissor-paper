@@ -20,5 +20,9 @@ public class FriendList {
         return id;
     }
 
+    public String toString(){
+        return userName;
+    }
+
 
 }

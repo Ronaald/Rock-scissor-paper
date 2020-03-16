@@ -10,15 +10,21 @@ import javafx.scene.Parent;
 import javafx.scene.*;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.SelectionMode;
+import javafx.scene.control.cell.ComboBoxListCell;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.scene.control.ListView;
 
 
 public class Controller implements Initializable {
+    public ListView list;
     @FXML
     javafx.scene.control.Button loginButton;
 
@@ -30,8 +36,14 @@ public class Controller implements Initializable {
     javafx.scene.control.Label logMessage;
     @FXML
     javafx.scene.control.Label friendOne;
-    @FXML
-    private ListView<FriendList> list = new ListView<FriendList>();
+
+
+
+
+
+
+    //@FXML
+    //private ListView<FriendList> list;// = new ListView<FriendList>();
 
     ObservableList<FriendList> listView = FXCollections.observableArrayList();
 
@@ -57,15 +69,46 @@ public class Controller implements Initializable {
         if (UserID > 0) {
 
             try {
-                list.setItems(databas.getFriend(UserID));
+                //list.setItems();
+                listView.addAll(databas.getFriend(UserID));
+
+                //list.setItems(listView);
+                //list.setVisible(true);
+
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+            /*
+            StackPane root = new StackPane();
+            root.getChildren().add(list);
+            Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            window.setScene(new Scene(root, 200, 200));
+            window.show();*/
+/*
+            AnchorPane root = new AnchorPane();
+            list.setPrefWidth(200D);
+            list.setPrefHeight(200D);
+            list.setLayoutY(50);
+            list.setLayoutX(50);
+            root.getChildren().add(list);
+            Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            window.setScene(new Scene(root, 600, 500));
+            window.show();*/
+
+
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("contactlist.fxml"));
 
-            Parent contactlistParent = loader.load();
+            AnchorPane contactlistParent = (AnchorPane)loader.load();
             Scene contactlistScene = new Scene(contactlistParent);
-
+/*
+            javafx.collections.ObservableList<javafx.scene.Node> children = contactlistParent.getChildren();
+            for(int i =0; i  < children.size(); i++) {
+                Node lw = children.get(i);
+                if (lw.getId().equals("list") == false) continue;;
+                ((ListView) lw).setItems(listView);
+            }*/
+            contactlistParent.getChildren().add(list);
             Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             window.setScene(contactlistScene);
             window.show();
@@ -76,7 +119,6 @@ public class Controller implements Initializable {
         passwordText.setText("");
     }
 }
-
 
 
 
